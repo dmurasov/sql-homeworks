@@ -38,9 +38,9 @@ FROM employees e
     INNER JOIN employees m ON (m.employee_id = e.manager_id);
 
 -- 7. the first name of all employees and the first name of their manager including those who does not working under any manager.
-SELECT e1.first_name, e2.first_name AS manager_name 
+SELECT e1.first_name AS employee_name, e2.first_name AS manager_name 
 FROM employees e1 
-    LEFT JOIN employees e2 ON e1.employee_id = e2.manager_id;
+    LEFT JOIN employees e2 ON e1.manager_id = e2.employee_id;
 
 -- 8. the details of employees who manage a department.
 SELECT * 
